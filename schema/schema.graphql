@@ -25,5 +25,4 @@ type Query {
   authors: [Author]
   libraries: [Library]
   genres: [Genre]
-  getAuthorByName(name: String): Author
 }

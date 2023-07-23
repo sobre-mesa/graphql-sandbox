@@ -10,7 +10,6 @@ const resolvers = {
     books: () => books,
     libraries: () => libraries,
     genres: () => genres,
-    getAuthorByName: authors.getByName,
   }
 };
 
