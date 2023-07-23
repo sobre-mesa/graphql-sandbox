@@ -1,0 +1,28 @@
+type Book {
+  title: String,
+  author: Author,
+  libraries: [Library]
+  genre: Genre
+}
+
+type Genre {
+  name: String,
+  books: [Book]
+}
+
+type Author { 
+  name: String,
+  books: [Book]
+}
+
+type Library {
+  name: String,
+  books: [Book]
+}
+
+type Query {
+  books: [Book]
+  authors: [Author]
+  libraries: [Library]
+  genres: [Genre]
+}
