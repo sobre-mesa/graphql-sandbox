@@ -1,16 +1,16 @@
 import fs from 'fs';
 import { data } from '../data/data.js';
 
-const { authors, books, libraries, genres } = data;
-
 const typeDefs = fs.readFileSync('./schema/schema.graphql', 'utf8').toString();
 
+const { authors, books, libraries, genres } = data;
 const resolvers = {
   Query: {
-    authors: () => authors,
+    authors: () => authors.data,
     books: () => books,
     libraries: () => libraries,
     genres: () => genres,
+    getAuthorByName: authors.getByName,
   }
 };
 

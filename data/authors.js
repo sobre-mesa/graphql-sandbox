@@ -12,7 +12,7 @@ const authorsNames = [
   },
   ];
 
-const authors = authorsNames.map((author) => {
+const data = authorsNames.map((author) => {
   const authorBooks = books.filter((book) => book.author.name === author.name);
   return {
     ...author,
@@ -20,4 +20,9 @@ const authors = authorsNames.map((author) => {
   };
 });
 
-export { authors };
+const authors = {
+  data,
+  getByName: (name) => authors.find((author) => author.name === name),
+}
+
+export {  authors };
