@@ -6,11 +6,14 @@ const typeDefs = fs.readFileSync('./schema/schema.graphql', 'utf8').toString();
 const { authors, books, libraries, genres } = data;
 const resolvers = {
   Query: {
-    authors: () => authors.data,
+    authors: () => authors,
     books: () => books,
     libraries: () => libraries,
     genres: () => genres,
-  }
+    getAuthorByName: (parent , args , contextValue, info) => { 
+      return authors.find(x => x.name === args.name)
+    }, 
+  },
 };
 
 const apolloSettings = {  typeDefs,  resolvers };
